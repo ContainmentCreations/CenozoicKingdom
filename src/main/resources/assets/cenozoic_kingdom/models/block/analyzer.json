@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "cenozoic_kingdom:block/analyzer_top",
+    "bottom": "cenozoic_kingdom:block/analyzer_bottom",
+    "front": "cenozoic_kingdom:block/analyzer_front",
+    "side": "cenozoic_kingdom:block/analyzer_sides"
+  }
+}
