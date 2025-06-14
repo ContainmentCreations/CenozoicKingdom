@@ -4,6 +4,8 @@
 
 A Minecraft 1.18.2 Fabric mod that brings ancient creatures back to life! BTW my first mod ever, so I am excited and pleased to say that this mod is Open-Source
 
+**Disclaimer**: All assets are placeholders and will be changed in future, this very early pre-alpha 0.0.1 version is only to demonstrate ideas for mod
+
 ## 📦 What is Cenozoic Kingdom?
 
 Cenozoic Kingdom is a mod focused on **prehistoric life, ancient DNA, and fossil technology**. Collect, analyze, and synthesize DNA from the past to reconstruct the creatures of the Cenozoic era—and beyond.
