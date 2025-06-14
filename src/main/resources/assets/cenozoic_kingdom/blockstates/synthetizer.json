@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "cenozoic_kingdom:block/synthetizer" },
+    "facing=south": { "model": "cenozoic_kingdom:block/synthetizer", "y": 180 },
+    "facing=west":  { "model": "cenozoic_kingdom:block/synthetizer", "y": 270 },
+    "facing=east":  { "model": "cenozoic_kingdom:block/synthetizer", "y": 90 }
+  }
+}
