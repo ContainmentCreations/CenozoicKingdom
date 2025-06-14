@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "cenozoic-kingdom",
+	"version": "${version}",
+	"name": "Cenozoic Kingdom",
+	"description": "Mod about resurecting MegaFauna",
+	"authors": [
+		"Gandalf"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": "https://github.com/ContainmentCreations/CenozoicKingdom"
+	},
+	"license": "MIT",
+	"icon": "assets/cenozoic_kingdom/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.gandalf.CenozoicKingdom"
+		]
+	},
+	"mixins": [
+		"cenozoic-kingdom.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.18.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
