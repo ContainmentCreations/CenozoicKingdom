@@ -13,7 +13,7 @@ Cenozoic Kingdom is a mod focused on **prehistoric life, ancient DNA, and fossil
 - **Analyzer Block**  
   Process items like `frozen_bone`, `frozen_meat`, and `frozen_skin` to extract ancient DNA. (names/tags will maybe change in the future)
 
-- **Synthesizer Block**  
+- **Synthetizer Block**  
   Combine basic DNA (e.g. `cenozoic_dna`, `paleozoic_dna`, `modern_dna` (all are very, very, very early names, and are definetely subject to change) to create **specific DNA** (like `mastodon_dna`, `dimetrodon_dna` (more to come in future...).
 
 - **Mutation System**  
