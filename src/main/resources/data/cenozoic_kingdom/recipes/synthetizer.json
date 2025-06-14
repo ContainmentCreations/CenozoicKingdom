@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "LGR",
+    "LCR"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:stone"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "R": {
+      "item": "minecraft:stone"
+    },
+    "C": {
+      "item": "cenozoic_kingdom:cenozoic_dna"
+    }
+  },
+  "result": {
+    "item": "cenozoic_kingdom:synthetizer",
+    "count": 1
+  }
+}

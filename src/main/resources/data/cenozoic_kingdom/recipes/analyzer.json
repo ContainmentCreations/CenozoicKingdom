@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "ASB",
+    "CFB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:glass"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:iron_ingot"
+    },
+    "F": {
+      "item": "cenozoic_kingdom:frozen_skin"
+    }
+  },
+  "result": {
+    "item": "cenozoic_kingdom:analyzer",
+    "count": 1
+  }
+}
