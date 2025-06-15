@@ -78,7 +78,7 @@ More coming in future...
 ## 📦 Optimization / Technical
 
 - [ ] Clean up item registry structure
-- [ ] Refactor `SynthetizerBlockEntity` logic into smaller methods
+- [x] Refactor `SynthetizerBlockEntity` logic into smaller methods
 - [ ] Add unit tests for weighted output selection
 - [ ] Fix potential slot duplication edge cases
 
