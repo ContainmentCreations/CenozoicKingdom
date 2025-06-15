@@ -45,6 +45,20 @@ Cenozoic Kingdom is a mod focused on **prehistoric life, ancient DNA, and fossil
 ## ANALYZER TEXTURE (subject may change)
 
 ![Analyzer Texture](images/2025-06-15_10.45.47.png)
+![Analyzer Texture](images/2025-06-15_10.45.57.png)
+![Analyzer Texture](images/2025-06-15_10.46.10.png)
+![Analyzer Texture](images/2025-06-15_10.46.16.png)
+
+# SYNTHESIZER TEXTURE (subject will change)
+
+![Synthesizer Texture](images/2025-06-15_11.12.14.png)
+![Synthesizer Texture](images/2025-06-15_11.12.20.png)
+![Synthesizer Texture](images/2025-06-15_11.12.29.png)
+
+# GUI TEXTURE (subject may/will change)
+
+![Analyzer GUI Texture](images/.png)
+![Synthesizer GUI Texture](images/.png)
 
 ## 🧪 Planned Features
 
