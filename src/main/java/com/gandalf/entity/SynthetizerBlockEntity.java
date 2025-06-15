@@ -43,7 +43,7 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
             new WeightedItem(ModItems.CASEA_DNA, 2),
             new WeightedItem(ModItems.ARCHEOTHYRIS_DNA, 1),
             new WeightedItem(ModItems.EOTHYRIS_DNA, 2),
-            new WeightedItem(ModItems.OECISTHEUS_DNA, 1),
+            new WeightedItem(ModItems.OPHIACODON_DNA, 1),
             new WeightedItem(Items.BONE, 16),
             new WeightedItem(Items.BEEF, 30),
             new WeightedItem(Items.BONE_MEAL, 40)
