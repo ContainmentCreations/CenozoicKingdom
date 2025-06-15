@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ArrayPropertyDelegate;
-import net.minecraft.text.Style;
 import net.minecraft.util.Formatting;
 
 
@@ -33,6 +32,9 @@ import net.minecraft.util.Formatting;
 
 
 public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
+    private static Item usedDNA;
+    private static boolean modified;
+    private static Item outputItem;
     private int processingTime = 0;
     private final DefaultedList<ItemStack> inventory =
             DefaultedList.ofSize(13, ItemStack.EMPTY);
@@ -147,9 +149,25 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
     private static final Random RANDOM = new Random();
 
     private static void craftRandomOutput(SynthetizerBlockEntity entity) {
-        boolean modified = false;
+        modified = false;
 
-        Item usedDNA = null;
+        checkSlots(entity);
+
+        if (usedDNA == null) return;
+
+        handleFail(entity);
+
+        getRandomItem();
+
+        setResult(entity);
+
+        if (modified) {
+            entity.markDirty();
+        }
+    }
+
+    private static void checkSlots(SynthetizerBlockEntity entity) {
+        usedDNA = null;
         for (int i = 0; i < 9; i++) {
             ItemStack stack = entity.getStack(i);
             if (!stack.isEmpty()) {
@@ -162,9 +180,9 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
                 }
             }
         }
+    }
 
-        if (usedDNA == null) return;
-
+    private static void handleFail (SynthetizerBlockEntity entity) {
         // Chance for special item
         if (RANDOM.nextInt(100) < 10) {
             Item failedItem = RANDOM.nextBoolean() ? ModItems.MUTATED_GENOME : ModItems.DESTROYED_DNA;
@@ -178,24 +196,29 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
                 }
             }
 
-            // Message for player
-            World world = entity.getWorld();
-            if (world != null && !world.isClient) {
-                BlockPos pos = entity.getPos();
-                List<PlayerEntity> players = world.getNonSpectatingEntities(PlayerEntity.class, new net.minecraft.util.math.Box(pos).expand(5));
-
-                for (PlayerEntity player : players) {
-                    player.sendMessage(
-                            new TranslatableText("message.cenozoic_kingdom.sequence_failed").formatted(Formatting.RED),
-                            false
-                    );
-                }
-            }
+            sendFailMessage(entity);
 
             if (modified) entity.markDirty();
-            return;
         }
+    }
 
+    private static void sendFailMessage (SynthetizerBlockEntity entity) {
+        // Message for player
+        World world = entity.getWorld();
+        if (world != null && !world.isClient) {
+            BlockPos pos = entity.getPos();
+            List<PlayerEntity> players = world.getNonSpectatingEntities(PlayerEntity.class, new net.minecraft.util.math.Box(pos).expand(5));
+
+            for (PlayerEntity player : players) {
+                player.sendMessage(
+                    new TranslatableText("message.cenozoic_kingdom.sequence_failed").formatted(Formatting.RED),
+                    false
+                );
+            }
+        }
+    }
+
+    private static void getRandomItem () {
         // Item random pick
         List<WeightedItem> outputPool;
         if (usedDNA == ModItems.MODERN_DNA) {
@@ -212,7 +235,7 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
         int r = RANDOM.nextInt(totalWeight);
         int cumulative = 0;
 
-        Item outputItem = Items.AIR;
+        outputItem = Items.AIR;
         for (WeightedItem wi : outputPool) {
             cumulative += wi.weight;
             if (r < cumulative) {
@@ -220,7 +243,9 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
                 break;
             }
         }
+    }
 
+    private static void setResult (SynthetizerBlockEntity entity) {
         ItemStack output = new ItemStack(outputItem);
 
         for (int i = 9; i < 13; i++) {
@@ -234,10 +259,6 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
                 modified = true;
                 break;
             }
-        }
-
-        if (modified) {
-            entity.markDirty();
         }
     }
 
