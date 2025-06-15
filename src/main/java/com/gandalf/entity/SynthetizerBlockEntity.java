@@ -40,12 +40,12 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
             DefaultedList.ofSize(13, ItemStack.EMPTY);
 
     private static final List<WeightedItem> POSSIBLE_PZ_OUTPUTS = List.of(
-            new WeightedItem(ModItems.DIMETRODON_DNA, 5),
-            new WeightedItem(ModItems.EDAPHOSAURUS_DNA, 3),
-            new WeightedItem(ModItems.CASEA_DNA, 2),
-            new WeightedItem(ModItems.ARCHEOTHYRIS_DNA, 1),
-            new WeightedItem(ModItems.EOTHYRIS_DNA, 2),
-            new WeightedItem(ModItems.OPHIACODON_DNA, 1),
+            new WeightedItem(ModItems.paleozoicDNAs.get("dimetrodon_dna"), 5),
+            new WeightedItem(ModItems.paleozoicDNAs.get("edaphosaurus_dna"), 3),
+            new WeightedItem(ModItems.paleozoicDNAs.get("casea_dna"), 2),
+            new WeightedItem(ModItems.paleozoicDNAs.get("archeothyris_dna"), 1),
+            new WeightedItem(ModItems.paleozoicDNAs.get("eothyris_dna"), 2),
+            new WeightedItem(ModItems.paleozoicDNAs.get("ophiacodon_dna"), 1),
             new WeightedItem(Items.BONE, 16),
             new WeightedItem(Items.BEEF, 30),
             new WeightedItem(Items.BONE_MEAL, 40)
@@ -53,11 +53,11 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
     );
 
     private static final List<WeightedItem> POSSIBLE_KZ_OUTPUTS = List.of(
-            new WeightedItem(ModItems.SMILODON_DNA, 10),
-            new WeightedItem(ModItems.MASTODON_DNA, 7),
-            new WeightedItem(ModItems.MEGATHERIUM_DNA, 5),
-            new WeightedItem(ModItems.KELENKEN_DNA, 4),
-            new WeightedItem(ModItems.DOEDICURUS_DNA, 3),
+            new WeightedItem(ModItems.cenozoicDNAs.get("smilodon_dna"), 10),
+            new WeightedItem(ModItems.cenozoicDNAs.get("mastodon_dna"), 7),
+            new WeightedItem(ModItems.cenozoicDNAs.get("megatherium_dna"), 5),
+            new WeightedItem(ModItems.cenozoicDNAs.get("kelenken_dna"), 4),
+            new WeightedItem(ModItems.cenozoicDNAs.get("doedicurus_dna"), 3),
             new WeightedItem(Items.BONE, 21),
             new WeightedItem(Items.BEEF, 20),
             new WeightedItem(Items.BONE_MEAL, 30)
@@ -65,15 +65,15 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
     );
 
     private static final List<WeightedItem> POSSIBLE_MODERN_OUTPUTS = List.of(
-            new WeightedItem(ModItems.DODO_DNA, 10),
-            new WeightedItem(ModItems.AUROCHS_DNA, 8),
-            new WeightedItem(ModItems.THYLACINE_DNA, 7),
-            new WeightedItem(ModItems.PASSENGER_PIGEON_DNA, 6),
-            new WeightedItem(ModItems.GREAT_AUK_DNA, 5),
-            new WeightedItem(ModItems.STELLERS_SEA_COW_DNA, 4),
-            new WeightedItem(ModItems.QUAGGA_DNA, 7),
-            new WeightedItem(ModItems.MOA_DNA, 3),
-            new WeightedItem(ModItems.HAASTS_EAGLE_DNA, 2),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("dodo_dna"), 10),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("aurochs_dna"), 8),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("thylacine_dna"), 7),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("passenger_pigeon_dna"), 6),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("great_auk_dna"), 5),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("stellers_sea_cow_dna"), 4),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("quagga_dna"), 7),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("moa_dna"), 3),
+            new WeightedItem(ModItems.modernExtinctDNAs.get("haasts_eagle_dna"), 2),
             new WeightedItem(Items.BONE, 16),
             new WeightedItem(Items.BEEF, 16),
             new WeightedItem(Items.BONE_MEAL, 16)
@@ -139,7 +139,7 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
     private static boolean hasValidInputs(SynthetizerBlockEntity entity) {
         for (int i = 0; i < 9; i++) {
             Item item = entity.getStack(i).getItem();
-            if (item == ModItems.CENOZOIC_DNA || item == ModItems.PALEOZOIC_MAMMAL_DNA || item == ModItems.MODERN_DNA) {
+            if (item == ModItems.normalItems.get("cenozoic_dna") || item == ModItems.normalItems.get("paleozoic_mammal_dna") || item == ModItems.normalItems.get("modern_dna")) {
                 return true;
             }
         }
@@ -172,7 +172,7 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
             ItemStack stack = entity.getStack(i);
             if (!stack.isEmpty()) {
                 Item item = stack.getItem();
-                if (item == ModItems.MODERN_DNA || item == ModItems.CENOZOIC_DNA || item == ModItems.PALEOZOIC_MAMMAL_DNA) {
+                if (item == ModItems.normalItems.get("cenozoic_dna") || item == ModItems.normalItems.get("paleozoic_mammal_dna") || item == ModItems.normalItems.get("modern_dna")) {
                     stack.decrement(1);
                     usedDNA = item;
                     modified = true;
@@ -185,7 +185,7 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
     private static void handleFail (SynthetizerBlockEntity entity) {
         // Chance for special item
         if (RANDOM.nextInt(100) < 10) {
-            Item failedItem = RANDOM.nextBoolean() ? ModItems.MUTATED_GENOME : ModItems.DESTROYED_DNA;
+            Item failedItem = RANDOM.nextBoolean() ? ModItems.normalItems.get("mutated_genome") : ModItems.normalItems.get("destroyed_dna");
             ItemStack failedOutput = new ItemStack(failedItem);
 
             for (int i = 9; i < 13; i++) {
@@ -221,11 +221,11 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
     private static void getRandomItem () {
         // Item random pick
         List<WeightedItem> outputPool;
-        if (usedDNA == ModItems.MODERN_DNA) {
+        if (usedDNA == ModItems.normalItems.get("modern_dna")) {
             outputPool = POSSIBLE_MODERN_OUTPUTS;
-        } else if (usedDNA == ModItems.CENOZOIC_DNA) {
+        } else if (usedDNA == ModItems.normalItems.get("cenozoic_dna")) {
             outputPool = POSSIBLE_KZ_OUTPUTS;
-        } else if (usedDNA == ModItems.PALEOZOIC_MAMMAL_DNA) {
+        } else if (usedDNA == ModItems.normalItems.get("paleozoic_mammal_dna")) {
             outputPool = POSSIBLE_PZ_OUTPUTS;
         } else {
             return;
