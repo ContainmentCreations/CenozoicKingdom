@@ -36,17 +36,17 @@ public class AnalyzerBlockEntity extends BlockEntity implements NamedScreenHandl
             DefaultedList.ofSize(13, ItemStack.EMPTY);
 
     private static final List<WeightedItem> POSSIBLE_OUTPUTS_FROZEN = List.of(
-            new WeightedItem(ModItems.CENOZOIC_DNA, 10),
-            new WeightedItem(ModItems.MODERN_DNA, 15),
-            new WeightedItem(ModItems.DESTROYED_DNA, 5),
+            new WeightedItem(ModItems.normalItems.get("cenozoic_dna"), 10),
+            new WeightedItem(ModItems.normalItems.get("modern_dna"), 15),
+            new WeightedItem(ModItems.normalItems.get("destroyed_dna"), 5),
             new WeightedItem(Items.BEEF, 30),
             new WeightedItem(Items.ICE, 20),
             new WeightedItem(Items.SAND, 20)
     );
 
     private static final List<WeightedItem> POSSIBLE_OUTPUTS_FOSSIL = List.of(
-            new WeightedItem(ModItems.PALEOZOIC_MAMMAL_DNA, 20),
-            new WeightedItem(ModItems.DESTROYED_DNA, 20),
+            new WeightedItem(ModItems.normalItems.get("paleozoic_mammal_dna"), 20),
+            new WeightedItem(ModItems.normalItems.get("destroyed_dna"), 20),
             new WeightedItem(Items.BEEF, 30),
             new WeightedItem(Items.BONE, 20),
             new WeightedItem(Items.BONE_MEAL, 10)
@@ -112,7 +112,7 @@ public class AnalyzerBlockEntity extends BlockEntity implements NamedScreenHandl
     private static boolean hasValidInputs(AnalyzerBlockEntity entity) {
         for (int i = 0; i < 9; i++) {
             Item item = entity.getStack(i).getItem();
-            if (item == ModItems.FROZEN_SKIN || item == ModItems.FROZEN_MEAT || item == ModItems.FROZEN_BONE || item == ModItems.FOSSIL_SKIN || item == ModItems.FOSSIL_BONE) {
+            if (item == ModItems.normalItems.get("frozen_skin") || item == ModItems.normalItems.get("frozen_meat") || item == ModItems.normalItems.get("frozen_bone") || item == ModItems.normalItems.get("fossil_skin") || item == ModItems.normalItems.get("fossil_bone")) {
                 return true;
             }
         }
@@ -130,13 +130,13 @@ public class AnalyzerBlockEntity extends BlockEntity implements NamedScreenHandl
             ItemStack stack = entity.getStack(i);
             if (!stack.isEmpty()) {
                 Item item = stack.getItem();
-                if (item == ModItems.FROZEN_BONE || item == ModItems.FROZEN_MEAT || item == ModItems.FROZEN_SKIN) {
+                if (item == ModItems.normalItems.get("frozen_skin") || item == ModItems.normalItems.get("frozen_meat") || item == ModItems.normalItems.get("frozen_bone")) {
                     stack.decrement(1);
                     usedItem = item;
                     isFossil = false;
                     modified = true;
                     break;
-                } else if (item == ModItems.FOSSIL_BONE || item == ModItems.FOSSIL_SKIN) {
+                } else if (item == ModItems.normalItems.get("fossil_skin") || item == ModItems.normalItems.get("fossil_bone")) {
                     stack.decrement(1);
                     usedItem = item;
                     isFossil = true;

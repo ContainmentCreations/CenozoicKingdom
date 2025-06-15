@@ -33,11 +33,10 @@ public class AnalyzerScreenHandler extends ScreenHandler {
         this.addProperties(delegate);
         this.propertyDelegate = delegate;
         Predicate<ItemStack> validInput = stack ->
-                stack.getItem() == ModItems.FROZEN_BONE ||
-                        stack.getItem() == ModItems.FROZEN_MEAT ||
-                        stack.getItem() == ModItems.FROZEN_SKIN ||
-                        stack.getItem() == ModItems.FOSSIL_BONE ||
-                        stack.getItem() == ModItems.FOSSIL_SKIN;
+                stack.getItem() == ModItems.normalItems.get("frozen_bone") ||
+                        stack.getItem() == ModItems.normalItems.get("frozen_meat") ||
+                        stack.getItem() == ModItems.normalItems.get("frozen_skin") ||
+                        stack.getItem() == ModItems.normalItems.get("fossil_bone");
 
         //
         this.addSlot(new ModInputSlot(inventory, 0, 20, 17, validInput));
