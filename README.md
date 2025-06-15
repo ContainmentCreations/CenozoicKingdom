@@ -38,7 +38,13 @@ Cenozoic Kingdom is a mod focused on **prehistoric life, ancient DNA, and fossil
 
 ## 📷 Screenshots
 
-(W.I.P)
+## PERMAFROST TEXTURE (subject may change)
+
+![Permafrost Texture](images/2025-06-15_10.18.59.png)
+
+## ANALYZER TEXTURE (subject may change)
+
+![Analyzer Texture](images/2025-06-15_10.45.47.png)
 
 ## 🧪 Planned Features
 
