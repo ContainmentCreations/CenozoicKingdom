@@ -61,8 +61,8 @@ public class ModItems {
     public static final Item EOTHYRIS_DNA = registerItem("eothyris_dna",
             new ModTooltipItem(new FabricItemSettings().maxCount(64), "tooltip.cenozoic_kingdom.eothyris_dna"));
 
-    public static final Item OECISTHEUS_DNA = registerItem("oecistheus_dna",
-            new ModTooltipItem(new FabricItemSettings().maxCount(64), "tooltip.cenozoic_kingdom.oecistheus_dna"));
+    public static final Item OPHIACODON_DNA = registerItem("ophiacodon_dna",
+            new ModTooltipItem(new FabricItemSettings().maxCount(64), "tooltip.cenozoic_kingdom.ophiacodon_dna"));
 
 
 
@@ -148,7 +148,7 @@ public class ModItems {
                 stacks.add(new ItemStack(CASEA_DNA));
                 stacks.add(new ItemStack(ARCHEOTHYRIS_DNA));
                 stacks.add(new ItemStack(EOTHYRIS_DNA));
-                stacks.add(new ItemStack(OECISTHEUS_DNA));
+                stacks.add(new ItemStack(OPHIACODON_DNA));
                 stacks.add(new ItemStack(SMILODON_DNA));
                 stacks.add(new ItemStack(MASTODON_DNA));
                 stacks.add(new ItemStack(MEGATHERIUM_DNA));
