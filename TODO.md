@@ -16,7 +16,7 @@ Feel free to suggest changes or additions via issues or Discord!
 ## 🔧 In Progress
 
 - [ ] Add custom entities from DNA (starting with first mob)
-- [ ] Implement fossil generation in world
+- [x] Implement fossil generation in world (frozen items for now)
 - [ ] Create animated models for mobs using GeckoLib
 - [ ] Sounds for Analyzer & Synthetizer
 - [ ] Polish and balance output chances
@@ -61,7 +61,7 @@ More coming in future...
 ## 🗺 World Gen
 
 - [ ] Fossil ores in underground layers
-- [ ] Ice-age fossils under cold biomes
+- [x] Ice-age fossils under cold biomes
 - [ ] Rare fossils in deep cave biomes
 
 ---
