@@ -1,6 +1,5 @@
 {
   "item.cenozoic_kingdom.frozen_bone": "Frozen Bone",
-
   "item.cenozoic_kingdom.frozen_meat": "Frozen Meat",
   "item.cenozoic_kingdom.frozen_skin": "Frozen Skin",
   "item.cenozoic_kingdom.analyzer": "Analyzer",
@@ -37,6 +36,7 @@
   "block.cenozoic_kingdom.permafrost_block": "Permafrost Block",
   "block.cenozoic_kingdom.analyzer": "Analyzer",
   "block.cenozoic_kingdom.synthetizer": "Synthetizer",
+  "block.cenozoic_kingdom.fossil_ore": "Fossil Ore",
 
   "container.analyzer": "Analyzer",
 
