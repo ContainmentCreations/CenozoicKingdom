@@ -139,7 +139,7 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
     private static boolean hasValidInputs(SynthetizerBlockEntity entity) {
         for (int i = 0; i < 9; i++) {
             Item item = entity.getStack(i).getItem();
-            if (item == ModItems.normalItems.get("cenozoic_dna") || item == ModItems.normalItems.get("paleozoic_mammal_dna") || item == ModItems.normalItems.get("modern_dna")) {
+            if (item == ModItems.normalItems.get("cenozoic_dna") || item == ModItems.normalItems.get("paleozoic_dna") || item == ModItems.normalItems.get("modern_dna")) {
                 return true;
             }
         }
@@ -172,7 +172,7 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
             ItemStack stack = entity.getStack(i);
             if (!stack.isEmpty()) {
                 Item item = stack.getItem();
-                if (item == ModItems.normalItems.get("cenozoic_dna") || item == ModItems.normalItems.get("paleozoic_mammal_dna") || item == ModItems.normalItems.get("modern_dna")) {
+                if (item == ModItems.normalItems.get("cenozoic_dna") || item == ModItems.normalItems.get("paleozoic_dna") || item == ModItems.normalItems.get("modern_dna")) {
                     stack.decrement(1);
                     usedDNA = item;
                     modified = true;
@@ -225,7 +225,7 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
             outputPool = POSSIBLE_MODERN_OUTPUTS;
         } else if (usedDNA == ModItems.normalItems.get("cenozoic_dna")) {
             outputPool = POSSIBLE_KZ_OUTPUTS;
-        } else if (usedDNA == ModItems.normalItems.get("paleozoic_mammal_dna")) {
+        } else if (usedDNA == ModItems.normalItems.get("paleozoic_dna")) {
             outputPool = POSSIBLE_PZ_OUTPUTS;
         } else {
             return;

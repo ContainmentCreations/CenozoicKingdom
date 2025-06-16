@@ -45,7 +45,7 @@ public class AnalyzerBlockEntity extends BlockEntity implements NamedScreenHandl
     );
 
     private static final List<WeightedItem> POSSIBLE_OUTPUTS_FOSSIL = List.of(
-            new WeightedItem(ModItems.normalItems.get("paleozoic_mammal_dna"), 20),
+            new WeightedItem(ModItems.normalItems.get("paleozoic_dna"), 20),
             new WeightedItem(ModItems.normalItems.get("destroyed_dna"), 20),
             new WeightedItem(Items.BEEF, 30),
             new WeightedItem(Items.BONE, 20),
