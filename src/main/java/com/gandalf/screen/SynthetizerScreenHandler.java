@@ -31,7 +31,7 @@ public class SynthetizerScreenHandler extends ScreenHandler {
         inventory.onOpen(playerInventory.player);
         this.addProperties(delegate);
         this.propertyDelegate = delegate;
-        Predicate<ItemStack> validInput = stack -> stack.getItem() == ModItems.normalItems.get("cenozoic_dna") || stack.getItem() == ModItems.normalItems.get("modern_dna") || stack.getItem() == ModItems.normalItems.get("paleozoic_mammal_dna");
+        Predicate<ItemStack> validInput = stack -> stack.getItem() == ModItems.normalItems.get("cenozoic_dna") || stack.getItem() == ModItems.normalItems.get("modern_dna") || stack.getItem() == ModItems.normalItems.get("paleozoic_dna");
         //
         this.addSlot(new ModInputSlot(inventory, 0, 20, 17, validInput));
         this.addSlot(new ModInputSlot(inventory, 1, 20, 35, validInput));
@@ -74,7 +74,7 @@ public class SynthetizerScreenHandler extends ScreenHandler {
             } else {
                 if (originalStack.getItem() == ModItems.normalItems.get("cenozoic_dna") ||
                         originalStack.getItem() == ModItems.normalItems.get("modern_dna") ||
-                        originalStack.getItem() == ModItems.normalItems.get("paleozoic_mammal_dna")) {
+                        originalStack.getItem() == ModItems.normalItems.get("paleozoic_dna")) {
 
                     if (!this.insertItem(originalStack, 0, 9, false)) {
                         return ItemStack.EMPTY;
