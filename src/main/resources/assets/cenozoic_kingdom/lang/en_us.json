@@ -33,10 +33,12 @@
 
   "itemGroup.cenozoic_kingdom.cenozoic_group": "Cenozoic Kingdom",
 
-  "block.cenozoic_kingdom.permafrost_block": "Permafrost Block",
+  "block.cenozoic_kingdom.surface_permafrost_block": "Surface Permafrost Block",
   "block.cenozoic_kingdom.analyzer": "Analyzer",
   "block.cenozoic_kingdom.synthetizer": "Synthetizer",
   "block.cenozoic_kingdom.fossil_ore": "Fossil Ore",
+  "block.cenozoic_kingdom.stone_permafrost_block": "Stone Permafrost Block",
+  "block.cenozoic_kingdom.deep_permafrost_block": "Deep Dark Permafrost Block",
 
   "container.analyzer": "Analyzer",
 
@@ -72,7 +74,9 @@
   "tooltip.cenozoic_kingdom.archeothyris_dna": "Ancient genetic material from Archeothyris.",
   "tooltip.cenozoic_kingdom.eothyris_dna": "DNA of the small Permian predator, Eothyris.",
   "tooltip.cenozoic_kingdom.ophiacodon_dna": "Recovered genetic material from the synapsid Ophiacodon. Precursor to mammals.",
-  "tooltip.cenozoic_kingdom.permafrost_block": "A frozen block that may contain prehistoric remains."
+  "tooltip.cenozoic_kingdom.surface_permafrost_block": "A frozen block that may contain prehistoric remains.",
+  "tooltip.cenozoic_kingdom.stone_permafrost_block": "A frozen block that may contain prehistoric remains.",
+  "tooltip.cenozoic_kingdom.deep_permafrost_block": "A frozen block that may contain prehistoric remains."
 }
 
 

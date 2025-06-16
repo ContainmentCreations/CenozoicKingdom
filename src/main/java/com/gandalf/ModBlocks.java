@@ -8,11 +8,23 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
-    public static final Block PERMAFROST_BLOCK = registerBlock("permafrost_block",
+    public static final Block SURFACE_PERMAFROST_BLOCK = registerBlock("surface_permafrost_block",
             new Block(net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings.of(Material.STONE)
                     .strength(3.0f, 6.0f)
                     .requiresTool()
                     .sounds(BlockSoundGroup.GRAVEL)));
+
+    public static final Block STONE_PERMAFROST_BLOCK = registerBlock("stone_permafrost_block",
+            new Block(net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings.of(Material.STONE)
+                    .strength(3.0f, 6.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.GRAVEL)));
+
+    public static final Block DEEP_PERMAFROST_BLOCK = registerBlock("deep_permafrost_block",
+            new Block(net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings.of(Material.DENSE_ICE)
+                    .strength(3.0f, 6.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.GLASS)));
 
     public static final Block ANALYZER = registerBlock("analyzer",
             new AnalyzerBlock());

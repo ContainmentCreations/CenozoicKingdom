@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "cenozoic_kingdom:block/stone_permafrost_block"
+  }
+}

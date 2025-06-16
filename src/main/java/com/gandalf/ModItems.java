@@ -99,8 +99,8 @@ public class ModItems {
     }
 
     //BlockItems
-    public static final Item PERMAFROST_BLOCK_ITEM = registerItem("permafrost_block",
-            new ModTooltipBlockItem(ModBlocks.PERMAFROST_BLOCK, new FabricItemSettings(), "tooltip.cenozoic_kingdom.permafrost_block"));
+    public static final Item SURFACE_PERMAFROST_ITEM = registerItem("surface_permafrost_block",
+            new ModTooltipBlockItem(ModBlocks.SURFACE_PERMAFROST_BLOCK, new FabricItemSettings(), "tooltip.cenozoic_kingdom.surface_permafrost_block"));
 
     public static final Item ANALYZER_ITEM = registerItem("analyzer",
             new ModTooltipBlockItem(ModBlocks.ANALYZER, new FabricItemSettings(), "tooltip.cenozoic_kingdom.analyzer"));
@@ -111,6 +111,11 @@ public class ModItems {
     public static final Item FOSSIL_ORE_ITEM = registerItem("fossil_ore",
         new ModTooltipBlockItem(ModBlocks.FOSSIL_ORE, new FabricItemSettings(), "tooltip.cenozoic_kingdom.fossil_ore"));
 
+    public static final Item STONE_PERMAFROST_ITEM = registerItem("stone_permafrost_block",
+            new ModTooltipBlockItem(ModBlocks.STONE_PERMAFROST_BLOCK, new FabricItemSettings(), "tooltip.cenozoic_kingdom.stone_permafrost_block"));
+    public static final Item DEEP_PERMAFROST_ITEM = registerItem("deep_permafrost_block",
+            new ModTooltipBlockItem(ModBlocks.STONE_PERMAFROST_BLOCK, new FabricItemSettings(), "tooltip.cenozoic_kingdom.deep_permafrost_block"));
+
 
     // Creative Group
     // stacks.add(new ItemStack());
@@ -119,7 +124,7 @@ public class ModItems {
             .icon(() -> new ItemStack(normalItems.get("frozen_bone")))
             .appendItems(stacks -> {
                 stacks.add(new ItemStack(normalItems.get("frozen_bone")));
-                stacks.add(new ItemStack(PERMAFROST_BLOCK_ITEM));
+                stacks.add(new ItemStack(SURFACE_PERMAFROST_ITEM));
                 stacks.add(new ItemStack(normalItems.get("frozen_meat")));
                 stacks.add(new ItemStack(normalItems.get("frozen_skin")));
                 stacks.add(new ItemStack(ANALYZER_ITEM));
@@ -152,6 +157,8 @@ public class ModItems {
                 stacks.add(new ItemStack(normalItems.get("fossil_bone")));
                 stacks.add(new ItemStack(normalItems.get("fossil_skin")));
                 stacks.add(new ItemStack(FOSSIL_ORE_ITEM));
+                stacks.add(new ItemStack(STONE_PERMAFROST_ITEM));
+                stacks.add(new ItemStack(DEEP_PERMAFROST_ITEM));
             })
             .build();
 

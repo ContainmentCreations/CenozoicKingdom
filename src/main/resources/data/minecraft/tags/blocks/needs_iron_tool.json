@@ -1,8 +1,10 @@
 {
   "replace": false,
-  "values": ["cenozoic_kingdom:permafrost_block",
+  "values": ["cenozoic_kingdom:surface_permafrost_block",
   "cenozoic_kingdom:analyzer",
   "cenozoic_kingdom:synthetizer",
-  "cenozoic_kingdom:fossil_ore"]
+  "cenozoic_kingdom:fossil_ore",
+  "cenozoic_kingdom:stone_permafrost_block",
+  "cenozoic_kingdom:deep_permafrost_block"]
 }
 
