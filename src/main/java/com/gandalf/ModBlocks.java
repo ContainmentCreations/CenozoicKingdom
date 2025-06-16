@@ -1,5 +1,6 @@
 package com.gandalf;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.sound.BlockSoundGroup;
@@ -19,6 +20,12 @@ public class ModBlocks {
 
     public static final Block SYNTHETIZER = registerBlock("synthetizer",
             new SynthetizerBlock());
+
+    public static final Block FOSSIL_ORE = registerBlock("fossil_ore",
+        new Block(FabricBlockSettings.of(Material.STONE)
+            .strength(3.0f, 6.0f)
+            .requiresTool()
+            .sounds(BlockSoundGroup.GRAVEL)));
 
 
     private static Block registerBlock(String name, Block block) {

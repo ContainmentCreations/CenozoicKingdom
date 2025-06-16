@@ -60,7 +60,7 @@ More coming in future...
 
 ## 🗺 World Gen
 
-- [ ] Fossil ores in underground layers
+- [x] Fossil ores in underground layers
 - [x] Ice-age fossils under cold biomes
 - [ ] Rare fossils in deep cave biomes
 

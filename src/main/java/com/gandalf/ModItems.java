@@ -108,6 +108,9 @@ public class ModItems {
     public static final Item SYNTHETIZER_ITEM = registerItem("synthetizer",
             new ModTooltipBlockItem(ModBlocks.SYNTHETIZER, new FabricItemSettings(), "tooltip.cenozoic_kingdom.synthetizer"));
 
+    public static final Item FOSSIL_ORE_ITEM = registerItem("fossil_ore",
+        new ModTooltipBlockItem(ModBlocks.FOSSIL_ORE, new FabricItemSettings(), "tooltip.cenozoic_kingdom.fossil_ore"));
+
 
     // Creative Group
     // stacks.add(new ItemStack());
@@ -148,6 +151,7 @@ public class ModItems {
                 stacks.add(new ItemStack(modernExtinctDNAs.get("haasts_eagle_dna")));
                 stacks.add(new ItemStack(normalItems.get("fossil_bone")));
                 stacks.add(new ItemStack(normalItems.get("fossil_skin")));
+                stacks.add(new ItemStack(FOSSIL_ORE_ITEM));
             })
             .build();
 
