@@ -10,7 +10,7 @@ Feel free to suggest changes or additions via issues or Discord!
 - [x] Functional Analyzer block with GUI  
 - [x] Functional Synthetizer block with DNA processing logic  
 - [x] Item processing system (frozen/fossil items → DNA)  
-- [x] Implemented fossil generation in world (frozen items for now)  
+- [x] Implemented fossil generation in world (frozen variants + fossil_ore (second version is coming soon))  
 
 ---
 
@@ -22,7 +22,7 @@ Feel free to suggest changes or additions via issues or Discord!
 - [ ] Sounds for Analyzer & Synthetizer (UI, working, success/failure)  
 - [x] Add tooltips for DNA/genome items  
 - [ ] Polish and balance drop/output chances  
-- [ ] Add Permafrost block variants (with visual differences)  
+- [x] Add Permafrost block variants (with visual differences)  
 - [ ] Configurable worldgen (via datapack or config file)  
 
 ---
@@ -70,7 +70,7 @@ coming soon...
 - [x] Create block textures (fossil ore, permafrost, devices)  
 - [ ] Animated textures (Analyzer working, glowing DNA, etc.)  
 - [ ] Add biome-appropriate spawn eggs for all mobs  
-- [ ] Texture variants for Permafrost (mossy, icy, cracked)    
+- [x] Texture variants for Permafrost (deep dark, stone, surface (in future this block will be generated in more biomes, and have custom texturem e.g. mossy, cracked))    
 - [ ] Entity textures and model templates for all creatures  
 
 ---
