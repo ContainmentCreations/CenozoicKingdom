@@ -28,7 +28,7 @@ public class ModItems {
             add("frozen_skin");
             add("cenozoic_dna");
             add("modern_dna");
-            add("paleozoic_mammal_dna");
+            add("paleozoic_dna");
             add("mutated_genome");
             add("destroyed_dna");
             add("fossil_bone");
@@ -122,7 +122,7 @@ public class ModItems {
                 stacks.add(new ItemStack(ANALYZER_ITEM));
                 stacks.add(new ItemStack(normalItems.get("cenozoic_dna")));
                 stacks.add(new ItemStack(normalItems.get("modern_dna")));
-                stacks.add(new ItemStack(normalItems.get("paleozoic_mammal_dna")));
+                stacks.add(new ItemStack(normalItems.get("paleozoic_dna")));
                 stacks.add(new ItemStack(SYNTHETIZER_ITEM));
                 stacks.add(new ItemStack(normalItems.get("mutated_genome")));
                 stacks.add(new ItemStack(normalItems.get("destroyed_dna")));
