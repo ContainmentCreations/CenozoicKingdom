@@ -10,16 +10,17 @@ Feel free to suggest changes or additions via issues or Discord!
 - [x] Functional Analyzer block with GUI
 - [x] Functional Synthetizer block with DNA processing logic
 - [x] Item processing system (frozen/fossil items → DNA)
+- [x] Implemented fossil generation in world (frozen items for now)
 
 ---
 
 ## 🔧 In Progress
 
 - [ ] Add custom entities from DNA (starting with first mob)
-- [x] Implement fossil generation in world (frozen items for now)
 - [ ] Create animated models for mobs using GeckoLib
 - [ ] Sounds for Analyzer & Synthetizer
 - [ ] Polish and balance output chances
+- [ ] Add more variants of Permafrost block and they generation
 
 ---
 
