@@ -114,7 +114,7 @@ public class ModItems {
     public static final Item STONE_PERMAFROST_ITEM = registerItem("stone_permafrost_block",
             new ModTooltipBlockItem(ModBlocks.STONE_PERMAFROST_BLOCK, new FabricItemSettings(), "tooltip.cenozoic_kingdom.stone_permafrost_block"));
     public static final Item DEEP_PERMAFROST_ITEM = registerItem("deep_permafrost_block",
-            new ModTooltipBlockItem(ModBlocks.STONE_PERMAFROST_BLOCK, new FabricItemSettings(), "tooltip.cenozoic_kingdom.deep_permafrost_block"));
+            new ModTooltipBlockItem(ModBlocks.DEEP_PERMAFROST_BLOCK, new FabricItemSettings(), "tooltip.cenozoic_kingdom.deep_permafrost_block"));
 
 
     // Creative Group
