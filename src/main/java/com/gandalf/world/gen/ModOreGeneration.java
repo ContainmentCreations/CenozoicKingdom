@@ -11,6 +11,9 @@ public class ModOreGeneration {
         System.out.println("✔️ Generating Permafrost Ore in snowy biomes...");
         BiomeModifications.addFeature(BiomeSelectors.tag(BiomeTags.IS_TAIGA),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.PERMAFROST_ORE_PLACED.getKey().get());
+        System.out.println("✔️ Generating Fossil Ore...");
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+            GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FOSSIL_ORE_PLACED.getKey().get());
     }
 }
 

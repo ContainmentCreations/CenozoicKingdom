@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:clay",
+    "minecraft:coarse_dirt",
+    "minecraft:dirt",
+    "minecraft:gravel",
+    "minecraft:red_sand",
+    "minecraft:rooted_dirt",
+    "minecraft:sand",
+    "minecraft:soul_sand",
+    "minecraft:soul_soil",
+    "minecraft:stone",
+    "minecraft:deepslate"
+  ]
+}

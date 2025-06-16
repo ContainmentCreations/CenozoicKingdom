@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "cenozoic_kingdom:paleozoic_dna" },
+        { "type": "minecraft:item", "name": "cenozoic_kingdom:cenozoic_dna" },
+        { "type": "minecraft:item", "name": "cenozoic_kingdom:modern_dna"}
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}
