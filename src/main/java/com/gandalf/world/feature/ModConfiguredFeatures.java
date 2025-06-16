@@ -18,7 +18,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> PERMAFROST_ORE =
             ConfiguredFeatures.register("permafrost_ore", Feature.ORE,
-                    new OreFeatureConfig(OVERWORLD_PERMAFROST_ORES, 20));
+                    new OreFeatureConfig(OVERWORLD_PERMAFROST_ORES, 9));
 
     public static final RuleTest FOSSIL_ORE_REPLACEABLES = new TagMatchRuleTest(ModBlockTags.FOSSIL_ORE_REPLACEABLES);
 
@@ -29,7 +29,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> FOSSIL_ORE =
         ConfiguredFeatures.register("fossil_ore", Feature.ORE,
-            new OreFeatureConfig(FOSSIL_ORES, 20));
+            new OreFeatureConfig(FOSSIL_ORES, 9));
 
     public static void registerConfiguredFeatures() {
         System.out.println("Registering ModConfiguredFeatures for " + CenozoicKingdom.MOD_ID);
