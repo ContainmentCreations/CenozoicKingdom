@@ -4,8 +4,9 @@
     {
       "rolls": 1,
       "entries": [
-        { "type": "minecraft:item", "name": "cenozoic_kingdom:paleozoic_mammal_dna" },
-        { "type": "minecraft:item", "name": "cenozoic_kingdom:cenozoic_dna" }
+        { "type": "minecraft:item", "name": "cenozoic_kingdom:paleozoic_dna" },
+        { "type": "minecraft:item", "name": "cenozoic_kingdom:cenozoic_dna" },
+        { "type": "minecraft:item", "name": "cenozoic_kingdom:modern_dna"}
       ],
       "conditions": [
         {
