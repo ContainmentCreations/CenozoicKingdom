@@ -64,7 +64,7 @@ coming soon...
 
 - [ ] Create and polish icons for all items:  
   - Fossil Fragments  
-  - DNA samples  
+  - [x] DNA samples  
   - Genome items  
   - Creature eggs  
 - [x] Create block textures (fossil ore, permafrost, devices)  
