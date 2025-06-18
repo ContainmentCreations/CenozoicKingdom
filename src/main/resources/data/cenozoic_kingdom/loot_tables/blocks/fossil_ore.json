@@ -4,9 +4,12 @@
     {
       "rolls": 1,
       "entries": [
-        { "type": "minecraft:item", "name": "cenozoic_kingdom:paleozoic_dna" },
-        { "type": "minecraft:item", "name": "cenozoic_kingdom:cenozoic_dna" },
-        { "type": "minecraft:item", "name": "cenozoic_kingdom:modern_dna"}
+        { "type": "minecraft:item", "name": "cenozoic_kingdom:fossil_bone" },
+        { "type": "minecraft:item", "name": "cenozoic_kingdom:fossil_skin"},
+        { "type":  "minecraft:item", "name": "minecraft:bone"},
+        { "type":  "minecraft:item", "name": "minecraft:bone_meal"},
+        { "type":  "minecraft:item", "name": "minecraft:gravel"},
+        { "type":  "minecraft:item", "name": "minecraft:sand"}
       ],
       "conditions": [
         {
