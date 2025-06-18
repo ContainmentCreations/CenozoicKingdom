@@ -1,0 +1,15 @@
+{
+  "type": "cenozoic_kingdom:synthetizer",
+  "ingredients": [{"item": "cenozoic_kingdom:paleozoic_dna"}],
+  "results": [
+    { "item": "cenozoic_kingdom:dimetrodon_dna", "weight": 5 },
+    { "item": "cenozoic_kingdom:edaphosaurus_dna", "weight": 3 },
+    { "item": "cenozoic_kingdom:casea_dna", "weight": 2 },
+    { "item": "cenozoic_kingdom:archeothyris_dna", "weight": 1 },
+    { "item": "cenozoic_kingdom:eothyris_dna", "weight": 2 },
+    { "item": "cenozoic_kingdom:ophiacodon_dna", "weight": 1 },
+    { "item": "minecraft:bone", "weight": 16 },
+    { "item": "minecraft:beef", "weight": 30 },
+    { "item": "minecraft:bone_meal", "weight": 40 }
+  ]
+}

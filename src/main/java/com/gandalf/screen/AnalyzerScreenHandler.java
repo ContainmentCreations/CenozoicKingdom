@@ -22,7 +22,7 @@ public class AnalyzerScreenHandler extends ScreenHandler {
 
 
     public AnalyzerScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(13), new ArrayPropertyDelegate(2));
+        this(syncId, playerInventory, new SimpleInventory(13), new ArrayPropertyDelegate(4));
     }
 
     public AnalyzerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {

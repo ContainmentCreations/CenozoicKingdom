@@ -1,0 +1,11 @@
+{
+  "type": "cenozoic_kingdom:analyzer",
+  "ingredients": [{"item": "cenozoic_kingdom:fossil_bone"}],
+  "results": [
+    { "item": "cenozoic_kingdom:paleozoic_dna", "weight": 20 },
+    { "item": "cenozoic_kingdom:destroyed_dna", "weight": 20 },
+    { "item": "minecraft:beef", "weight": 30 },
+    { "item": "minecraft:bone", "weight": 20 },
+    { "item": "minecraft:bone_meal", "weight": 10 }
+  ]
+}
