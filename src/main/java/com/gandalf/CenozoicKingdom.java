@@ -1,6 +1,7 @@
 package com.gandalf;
 
 import com.gandalf.entity.ModBlockEntities;
+import com.gandalf.recipe.ModRecipes;
 import com.gandalf.screen.AnalyzerScreen;
 import com.gandalf.screen.ModScreenHandlers;
 import com.gandalf.screen.SynthetizerScreen;
@@ -36,5 +37,7 @@ public class CenozoicKingdom implements ModInitializer {
 		ScreenRegistry.register(ModScreenHandlers.SYNTHETIZER_SCREEN_HANDLER, SynthetizerScreen::new);
 
 		ModWorldGen.generateModWorldGen();
+
+		ModRecipes.registerRecipes();
 	}
 }

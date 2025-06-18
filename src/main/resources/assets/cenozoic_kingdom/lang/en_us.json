@@ -76,7 +76,10 @@
   "tooltip.cenozoic_kingdom.ophiacodon_dna": "Recovered genetic material from the synapsid Ophiacodon. Precursor to mammals.",
   "tooltip.cenozoic_kingdom.surface_permafrost_block": "A frozen block that may contain prehistoric remains.",
   "tooltip.cenozoic_kingdom.stone_permafrost_block": "A frozen block that may contain prehistoric remains.",
-  "tooltip.cenozoic_kingdom.deep_permafrost_block": "A frozen block that may contain prehistoric remains."
+  "tooltip.cenozoic_kingdom.deep_permafrost_block": "A frozen block that may contain prehistoric remains.",
+
+  "category.rei.analyzer": "Analyzer",
+  "category.rei.synthetizer": "Synthetizer"
 }
 
 

@@ -21,7 +21,7 @@ public class SynthetizerScreenHandler extends ScreenHandler {
     private final PropertyDelegate propertyDelegate;
 
     public SynthetizerScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(13), new ArrayPropertyDelegate(2));
+        this(syncId, playerInventory, new SimpleInventory(13), new ArrayPropertyDelegate(4));
     }
 
     public SynthetizerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {

@@ -1,6 +1,6 @@
 package com.gandalf.entity;
 
-import com.gandalf.ModItems;
+import com.gandalf.recipe.SynthetizerRecipe;
 import com.gandalf.screen.SynthetizerScreenHandler;
 import com.gandalf.util.ImplementedInventory;
 import net.minecraft.block.BlockState;
@@ -8,81 +8,63 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.item.Item;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import java.util.List;
-import java.util.Random;
+import java.util.Optional;
 import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ArrayPropertyDelegate;
-import net.minecraft.util.Formatting;
 
 
 
 
 
 public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
-    private static Item usedDNA;
-    private static boolean modified;
-    private static Item outputItem;
-    private int processingTime = 0;
+    private ItemStack currentOutput = ItemStack.EMPTY;
     private final DefaultedList<ItemStack> inventory =
             DefaultedList.ofSize(13, ItemStack.EMPTY);
 
-    private static final List<WeightedItem> POSSIBLE_PZ_OUTPUTS = List.of(
-            new WeightedItem(ModItems.paleozoicDNAs.get("dimetrodon_dna"), 5),
-            new WeightedItem(ModItems.paleozoicDNAs.get("edaphosaurus_dna"), 3),
-            new WeightedItem(ModItems.paleozoicDNAs.get("casea_dna"), 2),
-            new WeightedItem(ModItems.paleozoicDNAs.get("archeothyris_dna"), 1),
-            new WeightedItem(ModItems.paleozoicDNAs.get("eothyris_dna"), 2),
-            new WeightedItem(ModItems.paleozoicDNAs.get("ophiacodon_dna"), 1),
-            new WeightedItem(Items.BONE, 16),
-            new WeightedItem(Items.BEEF, 30),
-            new WeightedItem(Items.BONE_MEAL, 40)
-            // Add more
-    );
-
-    private static final List<WeightedItem> POSSIBLE_KZ_OUTPUTS = List.of(
-            new WeightedItem(ModItems.cenozoicDNAs.get("smilodon_dna"), 10),
-            new WeightedItem(ModItems.cenozoicDNAs.get("mastodon_dna"), 7),
-            new WeightedItem(ModItems.cenozoicDNAs.get("megatherium_dna"), 5),
-            new WeightedItem(ModItems.cenozoicDNAs.get("kelenken_dna"), 4),
-            new WeightedItem(ModItems.cenozoicDNAs.get("doedicurus_dna"), 3),
-            new WeightedItem(Items.BONE, 21),
-            new WeightedItem(Items.BEEF, 20),
-            new WeightedItem(Items.BONE_MEAL, 30)
-            // Add more
-    );
-
-    private static final List<WeightedItem> POSSIBLE_MODERN_OUTPUTS = List.of(
-            new WeightedItem(ModItems.modernExtinctDNAs.get("dodo_dna"), 10),
-            new WeightedItem(ModItems.modernExtinctDNAs.get("aurochs_dna"), 8),
-            new WeightedItem(ModItems.modernExtinctDNAs.get("thylacine_dna"), 7),
-            new WeightedItem(ModItems.modernExtinctDNAs.get("passenger_pigeon_dna"), 6),
-            new WeightedItem(ModItems.modernExtinctDNAs.get("great_auk_dna"), 5),
-            new WeightedItem(ModItems.modernExtinctDNAs.get("stellers_sea_cow_dna"), 4),
-            new WeightedItem(ModItems.modernExtinctDNAs.get("quagga_dna"), 7),
-            new WeightedItem(ModItems.modernExtinctDNAs.get("moa_dna"), 3),
-            new WeightedItem(ModItems.modernExtinctDNAs.get("haasts_eagle_dna"), 2),
-            new WeightedItem(Items.BONE, 16),
-            new WeightedItem(Items.BEEF, 16),
-            new WeightedItem(Items.BONE_MEAL, 16)
-            // Add more
-    );
+    protected final PropertyDelegate propertyDelegate;
+    private int progress = 0;
+    private int maxProgress = 100;
 
 
     public SynthetizerBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.SYNTHETIZER, pos, state);
+
+
+        this.propertyDelegate = new PropertyDelegate() {
+            @Override
+            public int get(int index) {
+                return switch (index) {
+                    case 0 -> SynthetizerBlockEntity.this.progress;
+                    case 1 -> SynthetizerBlockEntity.this.maxProgress;
+                    default -> 0;
+                };
+            }
+
+            public void set(int index, int value) {
+                switch (index) {
+                    case 0:
+                        SynthetizerBlockEntity.this.progress = value;
+                        break;
+                    case 1:
+                        SynthetizerBlockEntity.this.maxProgress = value;
+                        break;
+                }
+            }
+
+            public int size() {
+                return 4;
+            }
+        };
     }
 
     @Override
@@ -105,178 +87,131 @@ public class SynthetizerBlockEntity extends BlockEntity implements NamedScreenHa
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inventory);
+        nbt.putInt("synthetizer.progress", progress);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         Inventories.readNbt(nbt, inventory);
         super.readNbt(nbt);
+        progress = nbt.getInt("synthetizer.progress");
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, SynthetizerBlockEntity entity) {
-        if (world.isClient) return;
+        if (entity.progress == 0 && hasRecipe(entity)) {
+            entity.selectCurrentOutput();
+        }
 
-        if (hasValidInputs(entity)) {
-            entity.processingTime++;
-            entity.propertyDelegate.set(0, entity.processingTime);
-            entity.propertyDelegate.set(1, 100);
-
-            if (entity.processingTime >= 100) {
-                craftRandomOutput(entity);
-                entity.processingTime = 0;
-                entity.propertyDelegate.set(0, 0);
+        if (entity.hasValidCurrentOutput() && hasRecipe(entity)) {
+            if (entity.progress >= entity.maxProgress) {
+                craftItem(entity);
+            } else if (hasRecipe(entity)){
+                entity.progress++;
             }
-        } else {
-            if (entity.processingTime != 0) {
-                entity.processingTime = 0;
-                entity.propertyDelegate.set(0, 0);
+        } else if (entity.progress > 0) {
+            entity.progress = 0;
+        }
+    }
+
+    private static boolean hasRecipe(SynthetizerBlockEntity entity) {
+        World world = entity.world;
+        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
+        for (int i = 0; i < 9; i++) {
+            inventory.setStack(i, entity.getStack(i));
+        }
+
+        assert world != null;
+        Optional<SynthetizerRecipe> match = world.getRecipeManager()
+            .getFirstMatch(SynthetizerRecipe.Type.INSTANCE, inventory, world);
+
+        return match.isPresent() && canInsertItemIntoOutputSlot(entity, entity.currentOutput);
+    }
+
+    private static void craftItem(SynthetizerBlockEntity entity) {
+        World world = entity.world;
+        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
+        for (int i = 0; i < 9; i++) {
+            inventory.setStack(i, entity.getStack(i));
+        }
+
+        assert world != null;
+        Optional<SynthetizerRecipe> match = world.getRecipeManager()
+            .getFirstMatch(SynthetizerRecipe.Type.INSTANCE, inventory, world);
+
+
+        if(match.isPresent()) {
+            ItemStack result = entity.currentOutput.copy();
+            for (int i = 0; i < 9; i++) {
+                try {
+                    if (match.get().getIngredients().get(0).test(entity.getStack(i)) && canInsertItemIntoOutputSlot(entity, result)) {
+                        entity.removeStack(i, 1);
+                        break;
+                    }
+                } catch (IndexOutOfBoundsException ignored) {}
+            }
+
+            for (int i = 9; i <= 12; i++) {
+                ItemStack outputStack = entity.getStack(i);
+
+                if (outputStack.isEmpty()) {
+                    entity.setStack(i, result);
+                    entity.resetProgress();
+                    break;
+                } else if (ItemStack.canCombine(outputStack, result) &&
+                    outputStack.getCount() + result.getCount() <= outputStack.getMaxCount()) {
+                    outputStack.increment(result.getCount());
+                    entity.resetProgress();
+                    break;
+                }
             }
         }
     }
 
 
 
-    private static boolean hasValidInputs(SynthetizerBlockEntity entity) {
-        for (int i = 0; i < 9; i++) {
-            Item item = entity.getStack(i).getItem();
-            if (item == ModItems.normalItems.get("cenozoic_dna") || item == ModItems.normalItems.get("paleozoic_dna") || item == ModItems.normalItems.get("modern_dna")) {
+    private void resetProgress() {
+        this.progress = 0;
+    }
+
+    private static boolean canInsertItemIntoOutputSlot(SynthetizerBlockEntity entity, ItemStack output) {
+        for (int i = 9; i <= 12; i++) {
+            ItemStack stack = entity.getStack(i);
+
+            if (stack.isEmpty()) {
+                return true;
+            } else if (ItemStack.canCombine(stack, output) && stack.getCount() + output.getCount() <= stack.getMaxCount()) {
                 return true;
             }
         }
         return false;
     }
 
-    private static final Random RANDOM = new Random();
+    private void selectCurrentOutput() {
+        World world = this.world;
+        if (world == null) return;
 
-    private static void craftRandomOutput(SynthetizerBlockEntity entity) {
-        modified = false;
-
-        checkSlots(entity);
-
-        if (usedDNA == null) return;
-
-        handleFail(entity);
-
-        getRandomItem();
-
-        setResult(entity);
-
-        if (modified) {
-            entity.markDirty();
-        }
-    }
-
-    private static void checkSlots(SynthetizerBlockEntity entity) {
-        usedDNA = null;
+        SimpleInventory inv = new SimpleInventory(this.inventory.size());
         for (int i = 0; i < 9; i++) {
-            ItemStack stack = entity.getStack(i);
-            if (!stack.isEmpty()) {
-                Item item = stack.getItem();
-                if (item == ModItems.normalItems.get("cenozoic_dna") || item == ModItems.normalItems.get("paleozoic_dna") || item == ModItems.normalItems.get("modern_dna")) {
-                    stack.decrement(1);
-                    usedDNA = item;
-                    modified = true;
-                    break;
-                }
-            }
+            inv.setStack(i, this.getStack(i));
         }
-    }
 
-    private static void handleFail (SynthetizerBlockEntity entity) {
-        // Chance for special item
-        if (RANDOM.nextInt(100) < 10) {
-            Item failedItem = RANDOM.nextBoolean() ? ModItems.normalItems.get("mutated_genome") : ModItems.normalItems.get("destroyed_dna");
-            ItemStack failedOutput = new ItemStack(failedItem);
+        Optional<SynthetizerRecipe> match = world.getRecipeManager()
+            .getFirstMatch(SynthetizerRecipe.Type.INSTANCE, inv, world);
 
-            for (int i = 9; i < 13; i++) {
-                if (entity.getStack(i).isEmpty()) {
-                    entity.setStack(i, failedOutput);
-                    modified = true;
-                    break;
-                }
+        if (match.isPresent()) {
+            ItemStack potentialOutput = match.get().craft(inv);
+            if (canInsertItemIntoOutputSlot(this, potentialOutput)) {
+                this.currentOutput = potentialOutput;
+            } else {
+                this.currentOutput = ItemStack.EMPTY;
             }
-
-            sendFailMessage(entity);
-
-            if (modified) entity.markDirty();
-        }
-    }
-
-    private static void sendFailMessage (SynthetizerBlockEntity entity) {
-        // Message for player
-        World world = entity.getWorld();
-        if (world != null && !world.isClient) {
-            BlockPos pos = entity.getPos();
-            List<PlayerEntity> players = world.getNonSpectatingEntities(PlayerEntity.class, new net.minecraft.util.math.Box(pos).expand(5));
-
-            for (PlayerEntity player : players) {
-                player.sendMessage(
-                    new TranslatableText("message.cenozoic_kingdom.sequence_failed").formatted(Formatting.RED),
-                    false
-                );
-            }
-        }
-    }
-
-    private static void getRandomItem () {
-        // Item random pick
-        List<WeightedItem> outputPool;
-        if (usedDNA == ModItems.normalItems.get("modern_dna")) {
-            outputPool = POSSIBLE_MODERN_OUTPUTS;
-        } else if (usedDNA == ModItems.normalItems.get("cenozoic_dna")) {
-            outputPool = POSSIBLE_KZ_OUTPUTS;
-        } else if (usedDNA == ModItems.normalItems.get("paleozoic_dna")) {
-            outputPool = POSSIBLE_PZ_OUTPUTS;
         } else {
-            return;
-        }
-
-        int totalWeight = outputPool.stream().mapToInt(w -> w.weight).sum();
-        int r = RANDOM.nextInt(totalWeight);
-        int cumulative = 0;
-
-        outputItem = Items.AIR;
-        for (WeightedItem wi : outputPool) {
-            cumulative += wi.weight;
-            if (r < cumulative) {
-                outputItem = wi.item;
-                break;
-            }
+            this.currentOutput = ItemStack.EMPTY;
         }
     }
 
-    private static void setResult (SynthetizerBlockEntity entity) {
-        ItemStack output = new ItemStack(outputItem);
-
-        for (int i = 9; i < 13; i++) {
-            ItemStack current = entity.getStack(i);
-            if (current.isEmpty()) {
-                entity.setStack(i, output);
-                modified = true;
-                break;
-            } else if (ItemStack.canCombine(current, output) && current.getCount() < current.getMaxCount()) {
-                current.increment(1);
-                modified = true;
-                break;
-            }
-        }
+    private boolean hasValidCurrentOutput() {
+        return !this.currentOutput.isEmpty();
     }
-
-
-    private final PropertyDelegate propertyDelegate = new ArrayPropertyDelegate(2);
-    public PropertyDelegate getPropertyDelegate() {
-        return propertyDelegate;
-    }
-
-    private static class WeightedItem {
-        public final Item item;
-        public final int weight;
-
-        public WeightedItem(Item item, int weight) {
-            this.item = item;
-            this.weight = weight;
-        }
-    }
-
 }
 

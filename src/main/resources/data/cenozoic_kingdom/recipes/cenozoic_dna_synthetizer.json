@@ -1,0 +1,14 @@
+{
+  "type": "cenozoic_kingdom:synthetizer",
+  "ingredients": [{"item": "cenozoic_kingdom:cenozoic_dna"}],
+  "results": [
+    { "item": "cenozoic_kingdom:smilodon_dna", "weight": 10 },
+    { "item": "cenozoic_kingdom:mastodon_dna", "weight": 7 },
+    { "item": "cenozoic_kingdom:megatherium_dna", "weight": 5 },
+    { "item": "cenozoic_kingdom:kelenken_dna", "weight": 4 },
+    { "item": "cenozoic_kingdom:doedicurus_dna", "weight": 3 },
+    { "item": "minecraft:bone", "weight": 21 },
+    { "item": "minecraft:beef", "weight": 20 },
+    { "item": "minecraft:bone_meal", "weight": 30 }
+  ]
+}

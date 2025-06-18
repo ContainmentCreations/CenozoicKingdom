@@ -1,0 +1,18 @@
+{
+  "type": "cenozoic_kingdom:synthetizer",
+  "ingredients": [{"item": "cenozoic_kingdom:modern_dna"}],
+  "results": [
+    { "item": "cenozoic_kingdom:dodo_dna", "weight": 10 },
+    { "item": "cenozoic_kingdom:aurochs_dna", "weight": 8 },
+    { "item": "cenozoic_kingdom:thylacine_dna", "weight": 7 },
+    { "item": "cenozoic_kingdom:passenger_pigeon_dna", "weight": 6 },
+    { "item": "cenozoic_kingdom:great_auk_dna", "weight": 5 },
+    { "item": "cenozoic_kingdom:stellers_sea_cow_dna", "weight": 4 },
+    { "item": "cenozoic_kingdom:quagga_dna", "weight": 7 },
+    { "item": "cenozoic_kingdom:moa_dna", "weight": 3 },
+    { "item": "cenozoic_kingdom:haasts_eagle_dna", "weight": 2 },
+    { "item": "minecraft:bone", "weight": 16 },
+    { "item": "minecraft:beef", "weight": 16 },
+    { "item": "minecraft:bone_meal", "weight": 16 }
+  ]
+}

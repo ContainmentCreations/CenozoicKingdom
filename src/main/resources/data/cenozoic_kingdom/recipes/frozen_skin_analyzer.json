@@ -1,0 +1,12 @@
+{
+  "type": "cenozoic_kingdom:analyzer",
+  "ingredients": [{"item": "cenozoic_kingdom:frozen_skin"}],
+  "results": [
+    { "item": "cenozoic_kingdom:cenozoic_dna", "weight": 10 },
+    { "item": "cenozoic_kingdom:modern_dna", "weight": 15 },
+    { "item": "cenozoic_kingdom:destroyed_dna", "weight": 5 },
+    { "item": "minecraft:beef", "weight": 30 },
+    { "item": "minecraft:ice", "weight": 20 },
+    { "item": "minecraft:sand", "weight": 20 }
+  ]
+}

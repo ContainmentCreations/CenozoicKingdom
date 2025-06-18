@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"com.gandalf.CenozoicKingdom"
+		],
+		"rei_client": [
+			"com.gandalf.rei.ModREIPlugin"
 		]
 	},
 	"mixins": [
