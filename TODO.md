@@ -70,7 +70,7 @@ coming soon...
 - [x] Create block textures (fossil ore, permafrost, devices)  
 - [ ] Animated textures (Analyzer working, glowing DNA, etc.)  
 - [ ] Add biome-appropriate spawn eggs for all mobs  
-- [x] Texture variants for Permafrost (deep dark, stone, surface (in future this block will be generated in more biomes, and have custom texturem e.g. mossy, cracked))    
+- [x] Texture variants for Permafrost (deep dark, stone, surface (in future this block will be generated in more biomes, and have custom textures e.g. mossy, cracked))    
 - [ ] Entity textures and model templates for all creatures  
 
 ---
