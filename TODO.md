@@ -127,7 +127,7 @@ coming soon...
   - Fossil spawn rates  
   - Permafrost generation  
   - DNA mutation chance  
-- [x] Optional integration with JEI/REI (DNA crafting & Analyzer recipes)  
+- [x] Optional integration with JEI/REI (Analyzer and Synthetizer recipes)  
 - [ ] Optional BiomeTags support for mod compatibility (e.g. Terralith)  
 
 ---
