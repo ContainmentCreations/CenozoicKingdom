@@ -65,12 +65,12 @@ coming soon...
 - [ ] Create and polish icons for all items:  
   - Fossil Fragments  
   - [x] DNA samples  
-  - Genome items  
+  - [x] Genome items  
   - Creature eggs  
 - [x] Create block textures (fossil ore, permafrost, devices)  
 - [ ] Animated textures (Analyzer working, glowing DNA, etc.)  
 - [ ] Add biome-appropriate spawn eggs for all mobs  
-- [x] Texture variants for Permafrost (deep dark, stone, surface (in future this block will be generated in more biomes, and have custom texturem e.g. mossy, cracked))    
+- [x] Texture variants for Permafrost (deep dark, stone, surface (in future this block will be generated in more biomes, and have custom textures e.g. mossy, cracked))    
 - [ ] Entity textures and model templates for all creatures  
 
 ---
@@ -127,7 +127,7 @@ coming soon...
   - Fossil spawn rates  
   - Permafrost generation  
   - DNA mutation chance  
-- [ ] Optional integration with JEI/REI (DNA crafting & Analyzer recipes)  
+- [x] Optional integration with JEI/REI (Analyzer and Synthetizer recipes)  
 - [ ] Optional BiomeTags support for mod compatibility (e.g. Terralith)  
 
 ---
