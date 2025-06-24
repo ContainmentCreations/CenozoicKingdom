@@ -1,6 +1,8 @@
 package com.gandalf;
 
+import com.gandalf.entity.ModEntities;
 import com.gandalf.item.ModTooltipBlockItem;
+import com.gandalf.item.ModTooltipEntity;
 import com.gandalf.item.ModTooltipItem;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -20,6 +22,7 @@ public class ModItems {
     public static Map<String, Item> paleozoicDNAs = new HashMap<>();
     public static Map<String, Item> cenozoicDNAs = new HashMap<>();
     public static Map<String, Item> modernExtinctDNAs = new HashMap<>();
+    public static Map<String, Item> spawnEggs = new HashMap<>();
 
     private static void registerNormalItems() {
         List<String> normalItemIdentifiers = new ArrayList<>() {{
@@ -98,6 +101,18 @@ public class ModItems {
         }
     }
 
+    private static void registerSpawnEggs() {
+        Item dodoEgg = registerItem("dodo_spawn_egg",
+                new ModTooltipEntity(
+                        ModEntities.DODO,
+                        0xD5BFAA, 0xA0723E,
+                        new FabricItemSettings().maxCount(1),
+                        "tooltip.cenozoic_kingdom.dodo_spawn_egg"
+                )
+        );
+        spawnEggs.put("dodo_spawn_egg", dodoEgg);
+    }
+
     //BlockItems
     public static final Item SURFACE_PERMAFROST_ITEM = registerItem("surface_permafrost_block",
             new ModTooltipBlockItem(ModBlocks.SURFACE_PERMAFROST_BLOCK, new FabricItemSettings(), "tooltip.cenozoic_kingdom.surface_permafrost_block"));
@@ -159,6 +174,7 @@ public class ModItems {
                 stacks.add(new ItemStack(FOSSIL_ORE_ITEM));
                 stacks.add(new ItemStack(STONE_PERMAFROST_ITEM));
                 stacks.add(new ItemStack(DEEP_PERMAFROST_ITEM));
+                stacks.add(new ItemStack(spawnEggs.get("dodo_spawn_egg")));
             })
             .build();
 
@@ -170,6 +186,7 @@ public class ModItems {
         CenozoicKingdom.LOGGER.info("Registering Mod Items for " + CenozoicKingdom.MOD_ID);
         registerNormalItems();
         registerDNAs();
+        registerSpawnEggs();
     }
 }
 

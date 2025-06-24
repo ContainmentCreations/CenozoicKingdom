@@ -77,6 +77,8 @@
   "tooltip.cenozoic_kingdom.surface_permafrost_block": "A frozen block that may contain prehistoric remains.",
   "tooltip.cenozoic_kingdom.stone_permafrost_block": "A frozen block that may contain prehistoric remains.",
   "tooltip.cenozoic_kingdom.deep_permafrost_block": "A frozen block that may contain prehistoric remains.",
+  "tooltip.cenozoic_kingdom.fossil_skin": "Fragment of fossilized skin. Might contain traces of DNA.",
+  "tooltip.cenozoic_kingdom.fossil_bone": "Fragment of fossilized bone. Might contain traces of DNA.",
 
   "category.rei.analyzer": "Analyzer",
   "category.rei.synthetizer": "Synthetizer"

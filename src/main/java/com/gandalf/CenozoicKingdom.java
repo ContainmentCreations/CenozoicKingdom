@@ -5,12 +5,14 @@ import com.gandalf.recipe.ModRecipes;
 import com.gandalf.screen.AnalyzerScreen;
 import com.gandalf.screen.ModScreenHandlers;
 import com.gandalf.screen.SynthetizerScreen;
+import com.gandalf.util.ModRegistries;
 import com.gandalf.world.feature.ModConfiguredFeatures;
 import com.gandalf.world.gen.ModWorldGen;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib3.GeckoLib;
 
 public class CenozoicKingdom implements ModInitializer {
 	public static final String MOD_ID = "cenozoic_kingdom";
@@ -39,5 +41,8 @@ public class CenozoicKingdom implements ModInitializer {
 		ModWorldGen.generateModWorldGen();
 
 		ModRecipes.registerRecipes();
+		ModRegistries.registerModStuffs();
+
+		GeckoLib.initialize();
 	}
 }
