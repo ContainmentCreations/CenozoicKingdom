@@ -18,6 +18,10 @@ repositories {
 	// for more information about repositories.
 	maven { url = "https://maven.shedaniel.me/" }
 	maven { url = "https://maven.architectury.dev/" }
+	maven {
+		name = 'GeckoLib'
+		url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+	}
 }
 
 dependencies {
@@ -39,6 +43,7 @@ dependencies {
 	modCompileOnly ("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version") {
 		exclude(group: "net.fabricmc", module: "fabric-loader")
 	}
+	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.80'
 }
 
 processResources {
