@@ -19,7 +19,7 @@
 			"com.gandalf.CenozoicKingdom"
 		],
 		"rei_client": [
-			"com.gandalf.rei.ModREIPlugin"
+			"com.gandalf.integration.rei.ModREIPlugin"
 		]
 	},
 	"mixins": [

@@ -3,6 +3,7 @@ package com.gandalf.world.feature;
 import com.gandalf.CenozoicKingdom;
 import com.gandalf.ModBlocks;
 import com.gandalf.block.ModBlockTags;
+import com.gandalf.config.ModConfigs;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.registry.RegistryEntry;
@@ -18,7 +19,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> SURFACE_PERMAFROST_ORE =
             ConfiguredFeatures.register("surface_permafrost_ore", Feature.ORE,
-                    new OreFeatureConfig(SURFACE_PERMAFROST_ORES, 16));
+                    new OreFeatureConfig(SURFACE_PERMAFROST_ORES, ModConfigs.surfacePermafrostOreSpawnSize));
 
     public static final RuleTest FOSSIL_ORE_REPLACEABLES = new TagMatchRuleTest(ModBlockTags.FOSSIL_ORE_REPLACEABLES);
 
@@ -29,7 +30,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> FOSSIL_ORE =
         ConfiguredFeatures.register("fossil_ore", Feature.ORE,
-            new OreFeatureConfig(FOSSIL_ORES, 9));
+            new OreFeatureConfig(FOSSIL_ORES, ModConfigs.fossilOreSpawnSize));
 
     public static final List<OreFeatureConfig.Target> STONE_PERMAFROST_ORES = List.of(
             OreFeatureConfig.createTarget(OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
@@ -38,7 +39,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> STONE_PERMAFROST_ORE =
             ConfiguredFeatures.register("stone_permafrost_ore", Feature.ORE,
-                    new OreFeatureConfig(STONE_PERMAFROST_ORES, 12));
+                    new OreFeatureConfig(STONE_PERMAFROST_ORES, ModConfigs.stonePermafrostOreSpawnSize));
 
     public static final List<OreFeatureConfig.Target> DEEP_PERMAFROST_ORES = List.of(
             OreFeatureConfig.createTarget(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES,
@@ -47,7 +48,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> DEEP_PERMAFROST_ORE =
             ConfiguredFeatures.register("deep_permafrost_ore", Feature.ORE,
-                    new OreFeatureConfig(DEEP_PERMAFROST_ORES, 9));
+                    new OreFeatureConfig(DEEP_PERMAFROST_ORES, ModConfigs.deepPermafrostOreSpawnSize));
 
     public static void registerConfiguredFeatures() {
         System.out.println("Registering ModConfiguredFeatures for " + CenozoicKingdom.MOD_ID);
