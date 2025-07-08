@@ -1,4 +1,4 @@
-package com.gandalf.rei;
+package com.gandalf.integration.rei;
 
 import com.gandalf.ModBlocks;
 import com.gandalf.recipe.AnalyzerRecipe;

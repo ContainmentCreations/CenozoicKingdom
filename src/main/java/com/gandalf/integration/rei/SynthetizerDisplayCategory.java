@@ -1,4 +1,4 @@
-package com.gandalf.rei;
+package com.gandalf.integration.rei;
 
 import com.gandalf.CenozoicKingdom;
 import com.gandalf.ModBlocks;

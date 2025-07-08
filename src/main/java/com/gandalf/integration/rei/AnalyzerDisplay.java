@@ -1,7 +1,7 @@
-package com.gandalf.rei;
+package com.gandalf.integration.rei;
 
 import com.gandalf.CenozoicKingdom;
-import com.gandalf.recipe.SynthetizerRecipe;
+import com.gandalf.recipe.AnalyzerRecipe;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
@@ -10,14 +10,14 @@ import net.minecraft.item.ItemStack;
 
 import java.util.*;
 
-public class SynthetizerDisplay implements Display {
+public class AnalyzerDisplay implements Display {
 
     private final List<EntryIngredient> inputEntries;
     private final List<EntryIngredient> outputEntries;
     private final Optional<String> recipeId;
     private final List<ItemStack> outputs;
 
-    public SynthetizerDisplay(SynthetizerRecipe recipe) {
+    public AnalyzerDisplay(AnalyzerRecipe recipe) {
         this.inputEntries = Collections.singletonList(EntryIngredients.of(recipe.getIngredients().get(0).getMatchingStacks()[0]));
         this.outputs = new ArrayList<>(new HashSet<>(recipe.getAllOutputs()));
         this.outputEntries = new ArrayList<>();
@@ -41,6 +41,6 @@ public class SynthetizerDisplay implements Display {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return CategoryIdentifier.of(CenozoicKingdom.MOD_ID, "synthetizer_display");
+        return CategoryIdentifier.of(CenozoicKingdom.MOD_ID, "analyzer_display");
     }
 }

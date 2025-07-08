@@ -1,5 +1,6 @@
 package com.gandalf;
 
+import com.gandalf.config.ModConfigs;
 import com.gandalf.entity.ModBlockEntities;
 import com.gandalf.recipe.ModRecipes;
 import com.gandalf.screen.AnalyzerScreen;
@@ -42,6 +43,8 @@ public class CenozoicKingdom implements ModInitializer {
 
 		ModRecipes.registerRecipes();
 		ModRegistries.registerModStuffs();
+
+		ModConfigs.registerConfigs();
 
 		GeckoLib.initialize();
 	}

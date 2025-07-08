@@ -19,9 +19,8 @@
 			"com.gandalf.CenozoicKingdom"
 		],
 		"rei_client": [
-			"com.gandalf.rei.ModREIPlugin"
-		],
-		"client": ["com.gandalf.CenozoicKingdomClient"]
+			"com.gandalf.integration.rei.ModREIPlugin"
+		]
 	},
 	"mixins": [
 		"cenozoic-kingdom.mixins.json"
